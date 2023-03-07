@@ -1,4 +1,4 @@
-﻿namespace src;
+﻿namespace Hangry;
 
 public partial class MainPage : ContentPage
 {

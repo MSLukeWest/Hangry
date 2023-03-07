@@ -1,7 +1,7 @@
 ﻿using ObjCRuntime;
 using UIKit;
 
-namespace src;
+namespace Hangry;
 
 public class Program
 {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace src;
+namespace Hangry;
 
 public static class MauiProgram
 {

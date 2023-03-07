@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace src;
+namespace Hangry;
 
 [Register("AppDelegate")]
 public class AppDelegate : MauiUIApplicationDelegate

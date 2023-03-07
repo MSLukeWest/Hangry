@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Runtime;
 
-namespace src;
+namespace Hangry;
 
 [Application]
 public class MainApplication : MauiApplication
