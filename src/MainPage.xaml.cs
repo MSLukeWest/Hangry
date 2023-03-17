@@ -1,24 +1,19 @@
-﻿namespace Hangry;
+﻿using Hangry.ViewModel;
+
+namespace Hangry;
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
+    public MainPage(MainViewModel vm)
+    {
+        InitializeComponent();
+        this.BindingContext = vm;
+    }
 
-	public MainPage()
-	{
-		InitializeComponent();
-	}
-
-	private void OnCounterClicked(object sender, EventArgs e)
-	{
-		count++;
-
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
-
-		SemanticScreenReader.Announce(CounterBtn.Text);
-	}
+    // TODO: Change this to a Command?
+    void OnSearchBarButtonPressed(object sender, EventArgs args)
+    {
+        SearchBar searchBar = (SearchBar)sender;
+        string searchText = searchBar.Text;
+    }
 }
-

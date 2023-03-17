@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Hangry.PantryPage"
+             xmlns:viewmodel="clr-namespace:Hangry.ViewModel"
+             xmlns:lib="https://Hangry.com/xaml/lib"
+             x:DataType="viewmodel:PantryViewModel"
+             Title="Pantry">
+    <Grid RowDefinitions="Auto, 200, Auto, Auto, *"
+          Padding="10"
+          RowSpacing="10"
+          ColumnSpacing="10">
+
+        <Label Text="My Pantry"
+               Grid.Row="0"
+               FontSize="Header"
+               FontFamily="Cursivestandard"
+               HorizontalTextAlignment="Center" />
+
+        <Image Grid.Row="1"
+               Source="pantrylogo.jpg"
+               BackgroundColor="Transparent" />
+
+        <Entry Placeholder="Enter ingredient"
+               Grid.Row="2"
+               Text="{Binding SearchText}"
+               WidthRequest="400"
+               HorizontalOptions="Center" />
+
+        <Button Text="Add"
+                Command="{Binding AddCommand}"
+                WidthRequest="300"
+                Grid.Row="3" />
+
+        <CollectionView Grid.Row="4"
+                        ItemsSource="{Binding Items}"
+                        SelectionMode="Single"
+                        HorizontalOptions="Center"
+                        SelectionChanged="PantryIngredientsCollection_SelectionChanged"
+                        x:Name="PantryIngredientsCollection">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="{x:Type lib:Ingredient}">
+                    <HorizontalStackLayout x:Name="foobar">
+                        <Label x:Name="IngredientLabel"  Text="{Binding Name}" FontSize="24" />
+                        <Button x:Name="RemoveIngredientButton" Text="X" HorizontalOptions="End" Clicked="OnItemDeleted" 
+                                IsVisible="{Binding Selected}" />
+                    </HorizontalStackLayout>
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+    </Grid>
+</ContentPage>

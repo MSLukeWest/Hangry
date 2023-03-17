@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Hangry.MainPage">
+             x:Class="Hangry.MainPage"
+             xmlns:viewmodel="clr-namespace:Hangry.ViewModel"
+             x:DataType="viewmodel:MainViewModel">
 
     <ScrollView>
         <VerticalStackLayout
@@ -10,13 +12,13 @@
             VerticalOptions="Center">
 
             <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                Source="hangrylogo.jpg"
+                SemanticProperties.Description="Logo for the Hangry app"
                 HeightRequest="200"
                 HorizontalOptions="Center" />
 
             <Label
-                Text="Are you Hangry!"
+                Text="Are you Hangry?"
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="32"
                 HorizontalOptions="Center" />
@@ -24,16 +26,30 @@
             <Label
                 Text="Let's help you decide what to eat!"
                 SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+                SemanticProperties.Description="Our tag line"
                 FontSize="18"
                 HorizontalOptions="Center" />
 
             <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
+                x:Name="SuggestBtn"
+                Text="Suggest Something"
+                Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=SuggestCommand}"
+                SemanticProperties.Hint="Suggest something"
                 HorizontalOptions="Center" />
+
+            <Button
+                x:Name="PantryBtn"
+                Text="Pantry"
+                Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=OpenPantryCommand}"
+                SemanticProperties.Hint="View Your Pantry"
+                HorizontalOptions="Center" />
+
+            <SearchBar
+                x:Name="RecipeSearchBar"
+                Placeholder="Look for recipe..."
+                WidthRequest="400"
+                HorizontalOptions="Center"
+                SearchButtonPressed="OnSearchBarButtonPressed" />
 
         </VerticalStackLayout>
     </ScrollView>

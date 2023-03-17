@@ -5,6 +5,10 @@ VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hangry", "Hangry.csproj", "{08D83401-960E-4FF2-B49C-5E9BA46D1C75}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hangry.Lib", "..\lib\Hangry.Lib.csproj", "{671E55D9-0622-4376-84B2-020848FC57E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hangry.Test", "..\test\Hangry.Test.csproj", "{95A18677-D04A-4166-84B2-D2476553D597}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +21,14 @@ Global
 		{08D83401-960E-4FF2-B49C-5E9BA46D1C75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08D83401-960E-4FF2-B49C-5E9BA46D1C75}.Release|Any CPU.Build.0 = Release|Any CPU
 		{08D83401-960E-4FF2-B49C-5E9BA46D1C75}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{671E55D9-0622-4376-84B2-020848FC57E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{671E55D9-0622-4376-84B2-020848FC57E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{671E55D9-0622-4376-84B2-020848FC57E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{671E55D9-0622-4376-84B2-020848FC57E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95A18677-D04A-4166-84B2-D2476553D597}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95A18677-D04A-4166-84B2-D2476553D597}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95A18677-D04A-4166-84B2-D2476553D597}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95A18677-D04A-4166-84B2-D2476553D597}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

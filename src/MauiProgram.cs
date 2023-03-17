@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Hangry.ViewModel;
+using Microsoft.Extensions.Logging;
 
 namespace Hangry;
 
@@ -13,12 +14,25 @@ public static class MauiProgram
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-			});
+                fonts.AddFont("Cursive-standard-Bold.ttf", "CursivestandardBold");
+                fonts.AddFont("Cursive-standard.ttf", "Cursivestandard");
+            });
 
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
 
-		return builder.Build();
+        builder.Services.AddSingleton<IConnectivity>(Connectivity.Current);
+
+        builder.Services.AddSingleton<MainPage>();
+        builder.Services.AddSingleton<MainViewModel>();
+
+
+        builder.Services.AddSingleton<PantryPage>();
+        builder.Services.AddSingleton<PantryViewModel>();
+
+        builder.Services.AddSingleton<FoodData>();
+
+        return builder.Build();
 	}
 }
