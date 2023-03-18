@@ -24,29 +24,23 @@
         <Entry Placeholder="Enter ingredient"
                Grid.Row="2"
                Text="{Binding SearchText}"
-               WidthRequest="400"
-               HorizontalOptions="Center" />
+               HorizontalOptions="Center" MaximumWidthRequest="400" MinimumWidthRequest="200" />
 
         <Button Text="Add"
                 Command="{Binding AddCommand}"
-                WidthRequest="300"
-                Grid.Row="3" />
+                Grid.Row="3" MaximumWidthRequest="400" MinimumWidthRequest="200" />
 
         <CollectionView Grid.Row="4"
                         ItemsSource="{Binding Items}"
                         SelectionMode="Single"
-                        HorizontalOptions="Center"
+                        HorizontalOptions="CenterAndExpand"
                         SelectionChanged="PantryIngredientsCollection_SelectionChanged"
+                        MaximumWidthRequest="300"
                         x:Name="PantryIngredientsCollection">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="{x:Type lib:Ingredient}">
-                    <HorizontalStackLayout x:Name="foobar">
-                        <Label x:Name="IngredientLabel"  Text="{Binding Name}" FontSize="24" />
-                        <Button x:Name="RemoveIngredientButton" Text="X" HorizontalOptions="End" Clicked="OnItemDeleted" 
-                                IsVisible="{Binding Selected}" />
-                    </HorizontalStackLayout>
+                    <Label x:Name="IngredientLabel"  Text="{Binding Name}" FontSize="14" />
                 </DataTemplate>
-
             </CollectionView.ItemTemplate>
 
         </CollectionView>

@@ -7,8 +7,8 @@ namespace Hangry.ViewModel;
 
 public partial class MainViewModel : ObservableObject
 {
-    IConnectivity connectivity;
-    FoodData foodData;
+    readonly IConnectivity connectivity;
+    readonly FoodData foodData;
 
     public MainViewModel(IConnectivity connectivity, FoodData foodData)
     {
@@ -25,6 +25,8 @@ public partial class MainViewModel : ObservableObject
     [RelayCommand]
     async Task Suggest()
     {
-        
+        // TODO: Set suggested recipe here
+
+        await Shell.Current.GoToAsync($"{nameof(RecipePage)}");
     }
 }

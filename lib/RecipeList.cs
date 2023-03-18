@@ -15,4 +15,12 @@ public class RecipeList
 
         return Common.DeserializeFromJSon<RecipeList>(recipesJsonFilePath, fileReader);
     }
+
+    public void ParseTimeData()
+    {
+        foreach (var recipe in this.Recipes)
+        {
+            recipe.ParseTimeData();
+        }
+    }
 }

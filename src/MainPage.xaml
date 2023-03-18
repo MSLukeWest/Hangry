@@ -47,9 +47,9 @@
             <SearchBar
                 x:Name="RecipeSearchBar"
                 Placeholder="Look for recipe..."
-                WidthRequest="400"
                 HorizontalOptions="Center"
-                SearchButtonPressed="OnSearchBarButtonPressed" />
+                BackgroundColor="White"
+                SearchButtonPressed="OnSearchBarButtonPressed" MinimumWidthRequest="200" MaximumWidthRequest="400" />
 
         </VerticalStackLayout>
     </ScrollView>

@@ -12,5 +12,6 @@ public class FoodData
     {
         this.Ingredients = IngredientsList.ReadFromFile("Data\\ingredients.json", Common.FileReader);
         this.Recipes = RecipeList.ReadFromFile("Data\\recipes.json", Common.FileReader);
+        this.Recipes.ParseTimeData();
     }
 }
