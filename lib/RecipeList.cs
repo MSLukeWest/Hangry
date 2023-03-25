@@ -26,7 +26,7 @@ public class RecipeList
 
     public List<Recipe> FindIngredientsMatches(IList<Ingredient> ingredients)
     {
-        var ingredientNames = ingredients.Select(x => x.Name);
-        return this.Recipes.Where(r => r.ingredients.All(i => ingredientNames.Contains(i))).ToList();
+        var ingredientNames = ingredients.Select(x => x.Name.ToLower());
+        return this.Recipes.Where(r => r.ingredients.All(i => ingredientNames.Contains(i.ToLower()))).ToList();
     }
 }

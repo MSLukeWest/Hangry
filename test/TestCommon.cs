@@ -4,6 +4,7 @@ internal static class TestCommon
 {
     internal const string RecipesJsonFilePath = @"Data\Recipes.json";
     internal const string IngredientsJsonFilePath = @"Data\Ingredients.json";
+    internal const string PantryJsonFilePath = @"Data\Pantry.json";
 
     internal static Func<string, Stream> TestFileReader = ((path) =>
     {

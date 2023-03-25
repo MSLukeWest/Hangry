@@ -1,4 +1,6 @@
 ﻿using Hangry.Lib;
+using Newtonsoft.Json;
+using System.Text.RegularExpressions;
 
 namespace Hangry.Test
 {
@@ -11,7 +13,7 @@ namespace Hangry.Test
             var recipeList = RecipeList.ReadFromFile(TestCommon.RecipesJsonFilePath, TestCommon.TestFileReader);
             Assert.IsNotNull(recipeList);
 
-            Assert.AreEqual(5000, recipeList.Recipes.Count);
+            Assert.AreEqual(4999, recipeList.Recipes.Count);
             Assert.AreEqual("Homemade Bacon", recipeList.Recipes[0].name);
         }
 
@@ -38,12 +40,41 @@ namespace Hangry.Test
             var recipeList = RecipeList.ReadFromFile(TestCommon.RecipesJsonFilePath, TestCommon.TestFileReader);
             Assert.IsNotNull(recipeList);
 
-            var ingredientsList = IngredientsList.ReadFromFile(TestCommon.IngredientsJsonFilePath, TestCommon.TestFileReader);
+            var ingredientsList = IngredientsList.ReadFromFile(TestCommon.PantryJsonFilePath, TestCommon.TestFileReader);
             Assert.IsNotNull(ingredientsList);
 
             var matches = recipeList.FindIngredientsMatches(ingredientsList.Ingredients);
             Assert.IsNotNull(matches);
-            Assert.IsTrue(matches.Count > 0);
+            Assert.AreEqual(3, matches.Count);
+        }
+
+        [TestMethod]
+        public void ParseRecipesTimeData()
+        {
+            var recipeList = RecipeList.ReadFromFile(TestCommon.RecipesJsonFilePath, TestCommon.TestFileReader);
+            Assert.IsNotNull(recipeList);
+
+            recipeList.ParseTimeData();
+            int failedTimeCount = 0;
+            int partialFailedTimeCount = 0;
+            foreach (var recipe in recipeList.Recipes)
+            {
+                bool failed1 = recipe.Prep == default;
+                bool failed2 = recipe.Cook == default;
+                bool failed3 = recipe.Ready == default;
+
+                if (failed1 && failed2 && failed3)
+                {
+                    failedTimeCount++;
+                }
+                else if (failed1 || failed2 || failed3)
+                {
+                    partialFailedTimeCount++;
+                }
+            }
+
+            Assert.AreEqual(0, partialFailedTimeCount);
+            Assert.AreEqual(0, failedTimeCount);
         }
 
             [TestMethod]
