@@ -1,12 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using Hangry.ViewModel;
 using Hangry.Lib;
-using Microsoft.Maui.Networking;
-using static System.Net.Mime.MediaTypeNames;
-using System.Linq;
 
 namespace Hangry.ViewModel;
 

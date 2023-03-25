@@ -8,8 +8,7 @@ namespace Hangry.Test
         [TestMethod]
         public void ReadIngredientsList()
         {
-            const string jsonFilePath = @"Data\Ingredients.json";
-            var ingredientsList = IngredientsList.ReadFromFile(jsonFilePath, TestCommon.TestFileReader);
+            var ingredientsList = IngredientsList.ReadFromFile(TestCommon.IngredientsJsonFilePath, TestCommon.TestFileReader);
             Assert.IsNotNull(ingredientsList);
             Assert.IsNotNull(ingredientsList.IngredientNames);
 

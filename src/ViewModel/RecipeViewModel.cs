@@ -1,7 +1,6 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using System.Diagnostics;
+using CommunityToolkit.Mvvm.ComponentModel;
 using Hangry.Lib;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
 
 namespace Hangry.ViewModel;
 
@@ -9,6 +8,8 @@ public partial class RecipeViewModel : ObservableObject
 {
     [ObservableProperty]
     Recipe current;
+
+    internal IList<Recipe> Matches { get; private set; } = null;
 
     readonly IConnectivity connectivity;
     readonly FoodData foodData;
@@ -18,11 +19,15 @@ public partial class RecipeViewModel : ObservableObject
         this.connectivity = connectivity;
         this.foodData = foodData;
 
-        this.current = this.foodData.Recipes.Recipes[2];
-
         if (connectivity.NetworkAccess != NetworkAccess.Internet)
         {
             Debug.WriteLine("Oh no, no internet...");
         }
+    }
+
+    public void SetMatches(IList<Recipe> matches)
+    {
+        this.Matches = matches;
+        this.Current = this.Matches.FirstOrDefault();
     }
 }

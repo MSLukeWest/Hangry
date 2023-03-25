@@ -29,7 +29,7 @@ public class Recipe
 
             // The last direction always has two unnecessary characters at the end
             var lastDirection = this.cooking_directions.Last();
-            this.cooking_directions[this.cooking_directions.Count - 1] = lastDirection.Substring(0, lastDirection.Length - 2);
+            this.cooking_directions[this.cooking_directions.Count - 1] = lastDirection[..^2];
         }
     }
 }

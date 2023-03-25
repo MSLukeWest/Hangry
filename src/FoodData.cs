@@ -14,4 +14,7 @@ public class FoodData
         this.Recipes = RecipeList.ReadFromFile("Data\\recipes.json", Common.FileReader);
         this.Recipes.ParseTimeData();
     }
+
+    // TODO: Delete if not used
+    public List<Recipe> GetMatches(IList<Ingredient> currentIngredients) => this.Recipes.FindIngredientsMatches(currentIngredients);
 }
