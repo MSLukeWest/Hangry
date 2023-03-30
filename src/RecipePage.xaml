@@ -6,44 +6,51 @@
              xmlns:lib="https://Hangry.com/xaml/lib"
              x:DataType="viewmodel:RecipeViewModel"
              Title="Recipe">
-    <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="StartAndExpand">
+    <Grid ColumnDefinitions="50, *, 50"
+          Padding="10"
+          RowSpacing="10"
+          ColumnSpacing="10">
+        <Button Text="&lt;" Grid.Column="0" VerticalOptions="Center" IsEnabled="{Binding EnablePrev}" Clicked="PrevButton_Clicked" />
+        <ScrollView Grid.Column="1">
+            <VerticalStackLayout
+                Spacing="25"
+                Padding="30,0"
+                VerticalOptions="StartAndExpand">
 
-            <Label x:Name="NameLabel"
-                   Text="{Binding Current.name}"
-                   FontSize="24" FontAttributes="Bold"
-                   HorizontalOptions="Center" />
-            <Label x:Name="RatingLabel" FontSize="20" HorizontalOptions="Center" >
-                <Label.FormattedText>
-                    <FormattedString>
-                        <Span Text="Rating:     " />
-                        <Span Text="{Binding Current.avg_rating}" />
-                        <Span Text=" (" />
-                        <Span Text="{Binding Current.num_ratings}" />
-                        <Span Text=")" />
-                    </FormattedString>
-                </Label.FormattedText>
-            </Label>
-            <Image Source="{Binding Current.image_url}" HorizontalOptions="Center" VerticalOptions="Center" MaximumWidthRequest="400" MaximumHeightRequest="400" Aspect="Center" />
-            <Label x:Name="IngredientsLabel" Text="Ingredients:" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center" />
-            <ListView ItemsSource="{Binding Current.ingredients}" HorizontalOptions="Center" />
-            <Label x:Name="TimeLabel" FontSize="20" HorizontalOptions="Center" >
-                <Label.FormattedText>
-                    <FormattedString>
-                        <Span Text="Prep:   " />
-                        <Span Text="{Binding Current.Prep}" />
-                        <Span Text="&#x0a;Cook:  " />
-                        <Span Text="{Binding Current.Cook}" />
-                        <Span Text="&#x0a;Ready: " />
-                        <Span Text="{Binding Current.Ready}" />
-                    </FormattedString>
-                </Label.FormattedText>
-            </Label>
-            <Label x:Name="CookingDirectionsLabel" Text="Cooking Directions:" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center" />
-            <ListView ItemsSource="{Binding Current.cooking_directions}" HorizontalOptions="Center" />
-        </VerticalStackLayout>
-    </ScrollView>
+                <Label x:Name="NameLabel"
+                       Text="{Binding Current.name}"
+                       FontSize="24" FontAttributes="Bold"
+                       HorizontalOptions="Center" />
+                <Label x:Name="RatingLabel" FontSize="20" HorizontalOptions="Center" >
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Rating:     " />
+                            <Span Text="{Binding Current.avg_rating}" />
+                            <Span Text=" (" />
+                            <Span Text="{Binding Current.num_ratings}" />
+                            <Span Text=")" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Image Source="{Binding Current.image_url}" HorizontalOptions="Center" VerticalOptions="Center" MaximumWidthRequest="400" MaximumHeightRequest="400" Aspect="Center" />
+                <Label x:Name="IngredientsLabel" Text="Ingredients:" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center" />
+                <ListView ItemsSource="{Binding Current.ingredients}" HorizontalOptions="Center" />
+                <Label x:Name="TimeLabel" FontSize="20" HorizontalOptions="Center" >
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Prep:   " />
+                            <Span Text="{Binding Current.Prep}" />
+                            <Span Text="&#x0a;Cook:  " />
+                            <Span Text="{Binding Current.Cook}" />
+                            <Span Text="&#x0a;Ready: " />
+                            <Span Text="{Binding Current.Ready}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label x:Name="CookingDirectionsLabel" Text="Cooking Directions:" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center" />
+                <ListView ItemsSource="{Binding Current.cooking_directions}" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+        </ScrollView>
+        <Button Text="&gt;" Grid.Column="2" VerticalOptions="Center" IsEnabled="{Binding EnableNext}" Clicked="NextButton_Clicked" />
+    </Grid>
 </ContentPage>
