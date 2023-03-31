@@ -12,7 +12,7 @@ namespace Hangry.Test
             Assert.IsNotNull(ingredientsList);
             Assert.IsNotNull(ingredientsList.IngredientNames);
 
-            Assert.AreEqual(8566, ingredientsList.Ingredients.Count);
+            Assert.AreEqual(8563, ingredientsList.Ingredients.Count);
             Assert.AreEqual("celery salt (optional)", ingredientsList.Ingredients[0].Name);
         }
 

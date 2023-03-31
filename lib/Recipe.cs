@@ -15,10 +15,10 @@ public class Recipe
     public string Cook { get; private set; }
     public string Ready { get; private set; }
 
-    internal void ParseTimeData()
+    internal bool ParseTimeData()
     {
         // Usually the 2nd, 4th and 6th elements have the time data
-        // TODO: Potential improvement: more specific parsing, and remove non-conformant elements
+        // TODO: Potential improvement: more specific parsing
         if (this.cooking_directions is not null && this.cooking_directions.Count > 6)
         {
             this.Prep = this.cooking_directions[1];
@@ -30,6 +30,9 @@ public class Recipe
             // The last direction always has two unnecessary characters at the end
             var lastDirection = this.cooking_directions.Last();
             this.cooking_directions[this.cooking_directions.Count - 1] = lastDirection[..^2];
+            return true;
         }
+
+        return false;
     }
 }

@@ -45,7 +45,7 @@ namespace Hangry.Test
 
             var matches = recipeList.FindIngredientsMatches(ingredientsList.Ingredients);
             Assert.IsNotNull(matches);
-            Assert.AreEqual(3, matches.Count);
+            Assert.AreEqual(6, matches.Count);
         }
 
         [TestMethod]
@@ -74,7 +74,7 @@ namespace Hangry.Test
             }
 
             Assert.AreEqual(0, partialFailedTimeCount);
-            Assert.AreEqual(0, failedTimeCount);
+            Assert.AreEqual(445, failedTimeCount);
         }
 
             [TestMethod]

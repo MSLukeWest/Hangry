@@ -20,7 +20,7 @@ public class RecipeList
     {
         foreach (var recipe in this.Recipes)
         {
-            recipe.ParseTimeData();
+            _ = recipe.ParseTimeData();
         }
     }
 
